@@ -1,20 +1,19 @@
-// comprar alho 
-// cancelar a Net
-var arrayTasks = [
-//     text:'louça',
-//     check:false,
-//     id:0
-// },
-// {
-//     text:'futebol',
-//     check :true,
-//     id:1
-// },
-// {
-//     text:'janta',
-//     check :false,
-//     id:2
-// }
+
+var arrayTasks = [{
+    text:'louça',
+    check:false,
+    id:0
+},
+{
+    text:'futebol',
+    check :false,
+    id:1
+},
+{
+    text:'janta',
+    check :false,
+    id:2
+}
 
 
 ]
