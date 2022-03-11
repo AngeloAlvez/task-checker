@@ -11,7 +11,7 @@ body{
 }
 #check-logo{
     font-weight: bolder;
-    display: inline;
+    display: inline-block;
 }
 .lixeira{
     font-size: 30px;
@@ -79,9 +79,11 @@ body{
     color: white;
     background-color: rgb(167, 238, 183);
     border: none;
-    border-radius: 3px;
+    border-radius: 4px;
     padding: 7px 12px;
     height: 50px;
+    font-weight: bolder;
+    
 }
 .enviar > button:hover{
     background-color: rgb(126, 200, 143)
