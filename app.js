@@ -41,24 +41,34 @@ init();
 function addTask(task) {
     let id = `task-${task.id}`
     let idCheck = `check-${task.id}`
-    const taskItem = document.createElement('taskItem');
-    taskItem.id = id
-    taskItem.innerHTML = `  
-        <li class="task">
-                <div class="to-do">
-                    <input id='${idCheck}' type="checkbox">
-                    <div class="item">${task.text}</div>
-                    <input id="lixeira" class="delete-task" type="button" onclick="delTask(${task.id})" value="X">
-                </div>
-        </li>`
-    const ul = document.getElementById('ul-task')
-    ul.appendChild(taskItem)
+    //verificação se o input está vazio
+    if(task.text != ""){
+
+        const taskItem = document.createElement('taskItem');
+        taskItem.id = id
+        taskItem.innerHTML = `  
+            <li class="task">
+                    <div class="to-do">
+                        <input id='${idCheck}' type="checkbox">
+                        <div class="item">${task.text}</div>
+                        <input id="lixeira" class="delete-task" type="button" onclick="delTask(${task.id})" value="X">
+                    </div>
+            </li>`
+        const ul = document.getElementById('ul-task')
+        ul.appendChild(taskItem)
+        document.getElementById(idCheck).checked = task.check
+        
+    }else{
+        alert('adicione alguma tarefa')
+    }
+
+   
 
 
     //event check
    // arrayTasks[task.id].check = true
 
-    document.getElementById(idCheck).checked = task.check
+    
 
 }
 function delTask(id) {
