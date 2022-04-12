@@ -1,49 +1,14 @@
+var arrayTasks = JSON.parse(localStorage.getItem("tasks")) || []
 
-var arrayTasks = [{
-    text:'louça',
-    check:false,
-    id:0
-},
-{
-    text:'futebol',
-    check :false,
-    id:1
-},
-{
-    text:'janta',
-    check :false,
-    id:2
-}
+arrayTasks.forEach( (elemento) =>{
+    console.log(elemento)
+    addTaskOnScreen(elemento)
+})
 
-
-]
-
-// FUNÇÕES DE TESTE PARA CHECKAR OU DESCHECKAR O BOX
-
-// function checkOn(){
-//     document.getElementById('checkbox').checked = true;
-//   }
-  
-//   function checkOff(){
-//     document.getElementById('checkb').checked = false;
-//   }
-
-//inicializando com as tarefas já inclusas no array acima (simulando um db)
-function init() {
-    for (let i=0; i < arrayTasks.length; i++ ){
-        const taskObject = arrayTasks[i]
-        addTask(taskObject)
-    }   
-}
-
-init();
-
-function addTask(task) {
+function addTaskOnScreen(task) {
     let id = `task-${task.id}`
     let idCheck = `check-${task.id}`
     //verificação se o input está vazio
-    if(task.text != ""){
-
         const taskItem = document.createElement('taskItem');
         taskItem.id = id
         taskItem.innerHTML = `  
@@ -57,19 +22,6 @@ function addTask(task) {
         const ul = document.getElementById('ul-task')
         ul.appendChild(taskItem)
         document.getElementById(idCheck).checked = task.check
-        
-    }else{
-        alert('adicione alguma tarefa')
-    }
-
-   
-
-
-    //event check
-   // arrayTasks[task.id].check = true
-
-    
-
 }
 function delTask(id) {
     var myobj = document.getElementById(`task-${id}`);
@@ -82,9 +34,15 @@ function clickTask() {
     taskObject.text = document.getElementById("inputTask").value;
     taskObject.check = false
     taskObject.id = arrayTasks.length
-    arrayTasks.push(taskObject)
-    addTask(taskObject)
+    if (taskObject.text == ""){
+        alert('Adicione alguma tarefa')
+    }else{
+        addTaskOnScreen(taskObject)
+        arrayTasks.push(taskObject)
 
+    localStorage.setItem("tasks", JSON.stringify(arrayTasks))
+
+    }
     //deixando o input vazio após o envio da tarefa
     document.getElementById("inputTask").value = "";
 
@@ -95,10 +53,3 @@ document.addEventListener('keypress', function(e){
       clickTask();
     }
   }, false);
-
-
-
-
-// function toggleCheck(id) {
-    
-// }
