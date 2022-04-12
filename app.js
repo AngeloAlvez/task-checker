@@ -1,7 +1,6 @@
 var arrayTasks = JSON.parse(localStorage.getItem("tasks")) || []
 
 arrayTasks.forEach((elemento) => {
-    console.log(elemento)
     addTaskOnScreen(elemento)
 })
 function addTaskOnScreen(task) {
@@ -12,7 +11,7 @@ function addTaskOnScreen(task) {
     taskItem.innerHTML = `  
             <li class="task">
                     <div class="to-do">
-                        <input id='${idCheck}' type="checkbox">
+                        <input id='${idCheck}' type="checkbox" onclick="checkTask(${task.id})">
                         <div class="item">${task.text}</div>
                         <input id="lixeira" class="delete-task" type="button" onclick="delTask(${task.id})" value="X">
                     </div>
@@ -21,17 +20,23 @@ function addTaskOnScreen(task) {
     ul.appendChild(taskItem)
     document.getElementById(idCheck).checked = task.check
 }
-function removeTask(elemento) {
-    elemento.remove()
-}
 function delTask(id) {
     var myobj = document.getElementById(`task-${id}`);
     arrayTasks.splice(arrayTasks.findIndex(elemento => elemento.id === id), 1)
     myobj.remove();
     localStorage.setItem("tasks", JSON.stringify(arrayTasks))
+}
+function checkTask(id) {
+    console.log(id)
+    let idCerto = arrayTasks.findIndex(elemento => elemento.id === id)
+    if (arrayTasks[idCerto].check == false) {
+        arrayTasks[idCerto].check = true
+    } else {
+        arrayTasks[idCerto].check = false
+    }
+    localStorage.setItem("tasks", JSON.stringify(arrayTasks))
 
 }
-//pegando o valor do input (tarefa a ser adicionada) e dando um addTask(input.value)
 function clickTask() {
     const taskObject = {}
     taskObject.text = document.getElementById("inputTask").value;
