@@ -1,32 +1,37 @@
-body{
- font-family: Arial, Helvetica, sans-serif;
-    
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
 }
-.header{
+
+.header {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 25px;
     justify-content: space-around;
-    box-shadow: 0px 4px 7px rgba(0,0,29,0.15);
+    box-shadow: 0px 4px 7px rgba(0, 0, 29, 0.15);
 }
-#check-logo{
+
+#check-logo {
     font-weight: bolder;
     display: inline-block;
 }
-.lixeira{
+
+.lixeira {
     font-size: 30px;
     border: none;
     background-color: none;
     background-color: rgba(240, 248, 255, 0);
     padding: 5px;
 }
-#titulo-principal{
+
+#titulo-principal {
     justify-content: center;
-    font-size:2em;
+    font-size: 2em;
     font-family: 'Lobster', cursive;
     color: rgba(93, 89, 89, 0.897);
 }
-.to-do{
+
+.to-do {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,36 +41,42 @@ body{
     background-color: rgba(231, 227, 227, 0.055);
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.089);
 }
-.item{
+
+.item {
     display: inline;
     font-size: 1.5em;
     text-align: center;
     margin-right: 5px;
     margin-left: 5px;
-   
+
 }
-.to-do > input[type='button'],
-.to-do> input[type='checkbox'] {
+
+.to-do>input[type='button'],
+.to-do>input[type='checkbox'] {
     width: 30px;
     height: 30px;
     color: white;
-    
+
 }
-.to-do > input[type='checkbox']:checked + div {
-    text-decoration:line-through;
+
+.to-do>input[type='checkbox']:checked+div {
+    text-decoration: line-through;
     color: rgba(77, 76, 76, 0.472);
 }
-.delete-task{
+
+.delete-task {
     background-color: rgb(241, 103, 103);
 }
-.to-do-new{
+
+.to-do-new {
     margin-top: 20px;
     margin-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-.to-do-new > input{
+
+.to-do-new>input {
     font-size: 20px;
     padding: 10px;
     border-radius: 5px;
@@ -74,7 +85,8 @@ body{
     border: 1px solid rgb(136, 134, 134);
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.089);
 }
-.enviar > button{
+
+.enviar>button {
     font-size: 30px;
     color: white;
     background-color: rgb(167, 238, 183);
@@ -84,11 +96,13 @@ body{
     height: 50px;
     font-weight: bolder;
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.089);
-    
+
 }
-.enviar > button:hover{
+
+.enviar>button:hover {
     background-color: rgb(126, 200, 143)
 }
-.enviar > button:active{
+
+.enviar>button:active {
     background-color: rgb(126, 200, 143)
 }
